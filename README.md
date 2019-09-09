@@ -1,29 +1,22 @@
-<<<<<<< HEAD
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Travel Plans: a Rails REST API that helps you find vacation options and pricing for your vacation plans
 
-Things you may want to cover:
+Things you might need to build an app like this:
 
-* Ruby version
+* Ruby version: 2.6
 
-* System dependencies
+* Rails version: 6.0
 
-* Configuration
+* Database: PostgreSQL
 
-* Database creation
+###Instructions
 
-* Database initialization
+####Step 1: In your terminal enter the following command:
 
-* How to run the test suite
+rails new travel_plans --database=postgresql --api
 
-* Services (job queues, cache servers, search engines, etc.)
+####Step 2: Create rwo models: Plan, Offer
 
-* Deployment instructions
-
-* ...
-=======
-# travel_plans
-A Raisl REST API for travel plans
->>>>>>> 7e59fe50740f338b71bf740bfd916d33610d7a30
+rails g model Plan name:string, created_by:string
+rails g model Offer offered_by:string, departs:string, length:string
