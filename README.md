@@ -18,30 +18,38 @@ Things you might need to build an app like this:
 
 rails new travel_plans --database=postgresql --api
 
+####Create the models: Plan, Offer, Provider
+
+rails g model Plan place, budget
+rails g model Provider name, website
+rails g model Offer tour_name, about, departs, length, price_from
+
+####Create the serializers: 
+
+rails g serializer plan
+rails g serializer provider
+rails g serializer offer
+
+####Create the controllers: 
+
+rails g controller api/v1/Plans
+rails g controller api/v1/Providers
+rails g controller api/v1/Offers
+
 ####Define routes in config/routes.rb:
 
 Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
-      resources :plans, only: [:index, :update]
-      resources :offers, only: [:index, :update]
+      resources :plans, only: [:index, :new, :show, :update]
+      resources :providers, only: [:index, :show, :update]
+      resources :offers, only: [:index, :new, show, :update]
     end
   end
 end
 
-####Create two models: Plan, Offer
+####create migration tables
 
-rails g model Plan name:string, created_by:string
-rails g model Offer offered_by:string, departs:string, length:string, price_from:decimal
-
-####Create two serializers: 
-
-rails g serializer plan
-rails g serializer offer
-
-####Create two controllers: 
-
-rails g controller api/v1/Plans
-rails g controller api/v1/Offers
+rails db:create && rails db:migrate
 
 

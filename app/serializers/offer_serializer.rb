@@ -1,4 +1,4 @@
 class OfferSerializer < ActiveModel::Serializer
-  attributes :offered_by, :about, :departs, :length, :price_from
-  belongs_to :plans
+  attributes :id, :tour_name, :about, :departs, :length, :price_from
+  belongs_to :providers
 end
