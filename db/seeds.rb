@@ -3,22 +3,22 @@
 
 DATA = {
 	:traveler_keys =>
-    ["email", "password", "admin"],
+    ["name", "passion"],
   :travelers => [
-    ["max@gmail.com", "password", "true"],
-    ["jack@gamil.com", "password", "false"],
-    ["leo@gamil.com", "password", "false"],
-    ["davis@gamil.com", "password", "false"],
-    ["cole@gamil.com", "password", "false"],
-    ["wallis@gamil.com", "password", "true"]
+    ["Max", "Hiking"],
+    ["Jack", "Rock Climbing"],
+    ["Leo", "Painting"],
+    ["David", "Diving"],
+    ["Frank", "Cooking"],
+    ["George", "Sailing"]
   ],
   :plan_keys =>
-    ["place", "budget", "season"],
+    ["place", "adventure", "traveler_id"],
   :plans => [
-    ["Max"],
-    ["Jack"],
-    ["Leo"],
-    ["Megan"],
+    ["Alaska", "Sailing into the Inside Passage of Alaska on a cruiseship.", 6],
+    ["Ireland", ],
+    ["Japan"],
+    ["Hawaii"],
     ["Hayden"],
     ["Tenzin"],
     ["Davis"],
@@ -26,7 +26,7 @@ DATA = {
     ["Wallis"]
   ],
   :offer_keys =>
-   ["tour_name", "about", "departs", "length", "price"],
+   ["tour_name", "about", "departs", "length", "price", "provider_id"],
   :offers => [
     ["Scrambler Ride", 2, 2, 2, 36],
     ["Miniature Railroad", 0, 1, 2, 32],
@@ -41,7 +41,7 @@ DATA = {
   :provider_keys =>
    ["name", "website"],
   :providers => [
-    ["Scrambler Ride", 2, 2, 2, 36],
+    ["", ""],
     ["Miniature Railroad", 0, 1, 2, 32],
     ["Merry-Go-Round", 1, 1, 1, 30],
     ["Roller Coaster", 1, 3, 4, 54],
@@ -61,37 +61,42 @@ def main
 end
 
 def make_travelers
-  DATA[:users].each do |user|
-    new_user = User.new
-    user.each_with_index do |attribute, i|
-      new_user.send(DATA[:user_keys][i]+"=", attribute)
+  DATA[:travelers].each do |traveler|
+    new_traveler = Traveler.new
+    traveler.each_with_index do |attribute, i|
+      new_traveler.send(DATA[:traveler_keys][i]+"=", attribute)
     end
     new_user.save
   end
 end
 
-# def make_admin
-#   DATA[:admins].each do |name|
-#     User.create(name: name, admin: true, password: 'password')
-#   end
-# end
 
-def make_attractions
-  DATA[:attractions].each do |attraction|
-    new_attraction = Attraction.new
-    attraction.each_with_index do |attribute, i|
-      new_attraction.send(DATA[:attraction_keys][i] + "=", attribute)
+def make_plans
+  DATA[:plans].each do |plan|
+    new_plan = Plan.new
+    plan.each_with_index do |attribute, i|
+      new_plan.send(DATA[:plan_keys][i] + "=", attribute)
     end
-    new_attraction.save
+    new_plan.save
   end
 end
 
-def make_rides
-  DATA[:rides].each do |ride|
-    new_ride = Ride.new
-    ride.each_with_index do |attribute, i|
-      new_ride.send(DATA[:ride_keys][i]+"=", attribute)
+def make_providors
+  DATA[:providors].each do |providor|
+    new_providor = Provider.new
+    providor.each_with_index do |attribute, i|
+      new_providor.send(DATA[:providor_keys][i]+"=", attribute)
     end
-    new_ride.save
+    new_providor.save
+  end
+end
+
+def make_offers
+  DATA[:offers].each do |offer|
+    new_offer = Offer.new
+    offer.each_with_index do |attribute, i|
+      new_offer.send(DATA[:offer_keys][i]+"=", attribute)
+    end
+    new_offer.save
   end
 end
