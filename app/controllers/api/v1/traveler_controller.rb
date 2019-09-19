@@ -1,4 +1,4 @@
-class Api::V1::TravelerController < ApplicationController
+class Api::V1::TravelersController < ApplicationController
 	before_action :find_traveler, only: [:update]
   def index
     @travelers = Traveler.all
