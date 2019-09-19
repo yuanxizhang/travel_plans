@@ -5,8 +5,8 @@ class CreateOffers < ActiveRecord::Migration[6.0]
       t.integer :provider_id
       t.string :about
       t.string :departs
-      t.integer :length
-      t.decimal :price_from
+      t.string :length
+      t.decimal :price
 
       t.timestamps
     end

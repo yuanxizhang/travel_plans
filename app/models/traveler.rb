@@ -1,0 +1,2 @@
+class Traveler < ApplicationRecord
+end

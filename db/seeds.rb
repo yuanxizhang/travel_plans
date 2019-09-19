@@ -2,21 +2,18 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 DATA = {
-	:user_keys =>
-    ["email", "password"],
-  :users => [
-    ["Max"],
-    ["Jack"],
-    ["Leo"],
-    ["Megan"],
-    ["Hayden"],
-    ["Tenzin"],
-    ["Davis"],
-    ["Cole"],
-    ["Wallis"]
+	:traveler_keys =>
+    ["email", "password", "admin"],
+  :travelers => [
+    ["max@gmail.com", "password", "true"],
+    ["jack@gamil.com", "password", "false"],
+    ["leo@gamil.com", "password", "false"],
+    ["davis@gamil.com", "password", "false"],
+    ["cole@gamil.com", "password", "false"],
+    ["wallis@gamil.com", "password", "true"]
   ],
   :plan_keys =>
-    ["place", "budget_limit", "time_limit"],
+    ["place", "budget", "season"],
   :plans => [
     ["Max"],
     ["Jack"],
@@ -29,7 +26,7 @@ DATA = {
     ["Wallis"]
   ],
   :offer_keys =>
-   ["tour_name", "about", "departs", "length", ""],
+   ["tour_name", "about", "departs", "length", "price"],
   :offers => [
     ["Scrambler Ride", 2, 2, 2, 36],
     ["Miniature Railroad", 0, 1, 2, 32],
@@ -41,9 +38,9 @@ DATA = {
     ["Ferris Wheel", 1, 1, 2, 36],
     ["Teacups Ride", 3, 1, 1, 28]
   ], 
-  :offer_keys =>
-   ["tour_name", "about", "departs", "length", ""],
-  :offers => [
+  :provider_keys =>
+   ["name", "website"],
+  :providers => [
     ["Scrambler Ride", 2, 2, 2, 36],
     ["Miniature Railroad", 0, 1, 2, 32],
     ["Merry-Go-Round", 1, 1, 1, 30],
@@ -60,17 +57,18 @@ def main
   make_providers
   make_offers
   make_plans
+  make_travelers
 end
 
-# def make_users
-#   DATA[:users].each do |user|
-#     new_user = User.new
-#     user.each_with_index do |attribute, i|
-#       new_user.send(DATA[:user_keys][i]+"=", attribute)
-#     end
-#     new_user.save
-#   end
-# end
+def make_travelers
+  DATA[:users].each do |user|
+    new_user = User.new
+    user.each_with_index do |attribute, i|
+      new_user.send(DATA[:user_keys][i]+"=", attribute)
+    end
+    new_user.save
+  end
+end
 
 # def make_admin
 #   DATA[:admins].each do |name|

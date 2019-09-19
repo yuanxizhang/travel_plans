@@ -1,3 +1,3 @@
 class PlanSerializer < ActiveModel::Serializer
-  attributes :id, :place, :budget
+  attributes :place, :budget, :season
 end
