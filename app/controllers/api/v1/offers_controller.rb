@@ -1,7 +1,7 @@
 class Api::V1::OffersController < ApplicationController
 	before_action :find_offer, only: [:update]
   def index
-    @offers = Offers.all
+    @offers = Offer.all
     render json: @offers
   end
 
@@ -21,6 +21,6 @@ class Api::V1::OffersController < ApplicationController
   end
 
   def find_offer
-    @offer = Offers.find(params[:id])
+    @offer = Offer.find(params[:id])
   end
 end

@@ -1,3 +1,4 @@
 class PlanSerializer < ActiveModel::Serializer
-  attributes :place, :budget, :season
+  attributes :id, :place, :adventure
+  belongs_to :traveler
 end
