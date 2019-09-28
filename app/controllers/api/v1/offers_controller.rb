@@ -3,7 +3,7 @@ class Api::V1::OffersController < ApplicationController
 
   def index
     @offers = Offer.all
-    render json: @offers
+    render json: {status: 'SUCCESS', message: 'Loaded all offers', data: offers}, status: :ok
   end
 
   def new 
