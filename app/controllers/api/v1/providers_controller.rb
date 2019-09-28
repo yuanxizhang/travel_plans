@@ -1,8 +1,9 @@
 class Api::V1::ProvidersController < ApplicationController
-	before_action :find_provider, only: [:update]
+	before_action :find_provider, only: [:show, :update]
+  
   def index
     @providers = Provider.all
-    render json: {status: 'SUCCESS', message: 'Loaded all providers', data: providers}, status: :ok
+    render json: @providers
   end
 
   def new 

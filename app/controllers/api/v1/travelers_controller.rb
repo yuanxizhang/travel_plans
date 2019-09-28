@@ -1,8 +1,9 @@
 class Api::V1::TravelersController < ApplicationController
-	before_action :find_traveler, only: [:update]
+	before_action :find_traveler, only: [:show, :update]
+  
   def index
     @travelers = Traveler.all
-    render json: {status: 'SUCCESS', message: 'Loaded all travelers', data: travelers}, status: :ok
+    render json: @travelers
   end
 
   def new 

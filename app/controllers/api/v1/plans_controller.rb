@@ -1,8 +1,9 @@
 class Api::V1::PlansController < ApplicationController
-	before_action :find_plan, only: [:update]
+	before_action :find_plan, only: [:show, :update]
+
   def index
     @plans = Plan.all
-    render json: {status: 'SUCCESS', message: 'Loaded all plans', data: plans}, status: :ok
+    render json: @plans
   end
 
   def new 
@@ -40,6 +41,6 @@ class Api::V1::PlansController < ApplicationController
   end
 
   def find_plan
-    @plan = Plan.find(params[:id])
+    @plan = Plan.find_by_id(params[:id])
   end
 end

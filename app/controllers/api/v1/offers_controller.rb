@@ -1,9 +1,9 @@
 class Api::V1::OffersController < ApplicationController
-	before_action :find_offer, only: [:update]
+	before_action :find_offer, only: [:show, :update]
 
   def index
     @offers = Offer.all
-    render json: {status: 'SUCCESS', message: 'Loaded all offers', data: offers}, status: :ok
+    render json: @offers
   end
 
   def new 
