@@ -4,6 +4,7 @@ require 'rails_helper'
 RSpec.describe Offer, type: :model do
   # Association test
   it { should belong_to(:provider) }
+  
   # Validation test  
   it { should validate_presence_of(:tour_name) }
 end

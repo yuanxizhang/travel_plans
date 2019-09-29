@@ -40,7 +40,7 @@ class Api::V1::TravelersController < ApplicationController
     params.permit(:name, :passion)
   end
 
-  def find_traveler
-    @traveler = Traveler.find(params[:id])
+  def find_traveler  
+    @traveler = Traveler.find(params[:id]) 
   end
 end

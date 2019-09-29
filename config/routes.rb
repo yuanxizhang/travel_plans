@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
-	namespace :api do
-     namespace :v1 do
-        resources :plans, only: [:index, :new, :create, :show]
-        resources :offers, only: [:index, :new, :create, :show]
-        resources :travelers, only: [:index, :new, :create, :show]
-        resources :providers, only: [:index, :new, :create, :show]
-     end
+  namespace :api do
+    namespace :v1 do
+      resources :travelers, only: [:index, :new, :show, :create, :update]
+      resources :plans, only: [:index, :new, :show, :create, :update]
+      resources :providers, only: [:index, :new, :show, :create, :update]
+      resources :offers, only: [:index, :new, :show, :create, :update]
+    end
   end
 end
