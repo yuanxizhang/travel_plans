@@ -1,6 +1,6 @@
 # README
 
-## Travel Plans: a Rails application that helps you find vacation package offers and pricing for your travel plans
+## Travel Plans: a Rails API that helps you find vacation package offers and pricing for your travel plans
 
 Things you might need to build an app like this:
 
