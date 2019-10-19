@@ -34,10 +34,16 @@ class Api::V1::OffersController < ApplicationController
     end
   end
 
+  def destroy
+    offer = Offer.find_by(:id => params[:id])
+    offer.destroy
+    render json: { message: "removed" }, status: :ok
+  end
+
   private
 
   def offer_params
-    params.permit(:tour_name, :about, :departs, :length, :price)
+    params.permit(:tour_name, :about, :departs, :length, :price, :likes)
   end
 
   def find_offer

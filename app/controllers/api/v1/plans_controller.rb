@@ -34,6 +34,12 @@ class Api::V1::PlansController < ApplicationController
     end
   end
 
+  def destroy
+    plan = Plan.find_by(:id => params[:id])
+    plan.destroy
+    render json: { message: "removed" }, status: :ok
+  end
+
   private
 
   def plan_params
