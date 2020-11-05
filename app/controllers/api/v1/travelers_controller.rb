@@ -35,7 +35,8 @@ class Api::V1::TravelersController < ApplicationController
   end
 
   def destroy
-    teaveler.destroy
+    traveler.destroy
+    render json: { message: "removed" }, status: :ok
   end
 
   private
